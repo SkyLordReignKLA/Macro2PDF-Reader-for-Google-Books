@@ -1,4 +1,4 @@
-# Macro2PDF---.MOV-Reader
+# Macro2PDF Reader
 
 
 This project addresses a specific challenge a lot of users face - getting Google Books documents on a local device. A lot of users are unable to make progress using ACSM keys. I hope this benefits someone the way it benefit me. It requires MacOS and a screen recording process. This code works best for black and white (B&W) books.
