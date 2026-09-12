@@ -8,9 +8,7 @@ The way it starts is simple - you need to use an online reader (this code is des
 
 Instructions for how to record your Macro with Screen Recording:
 
-  Turn through the pages that you want in the PDF. Use Record Selection to record the pages as you want them to     
-  appear on PDF. I recommend using a Macro tool like Apple Shortcuts. It can be powerful to program efficiency. Don't ever 
-  go backwards, because this code only checks the previous page for duplicates.
+  Turn through the pages you want in the PDF. Use Record Selection to record the pages as you want them to appear on PDF. I recommend using a Macro tool like Apple Shortcuts. It can be powerful to program efficiency. Don't ever go backwards, because this code only checks the previous page for duplicates.
 
 
 Now that you have screen-recorded your entire book, you are entirely ready to create a PDF. Before running the script, you need to install a few Python imports: "pip install opencv-python numpy PyMuPDF img2pdf ocrmac"
