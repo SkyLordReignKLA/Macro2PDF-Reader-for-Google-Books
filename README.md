@@ -4,13 +4,12 @@
 This project addresses a specific challenge a lot of users face - getting Google Books documents on a local device. Many users are unable progress using ACSM keys. I hope this benefits someone the way it benefit me. It requires MacOS and a screen recording process. This code works best for black and white (B&W) books.
 
 
-The way it starts is simple - you need to use an online reader (this code is designed for Google Books) on full screen mode, recommended one-page layout and Fit-to-Screen Zoom. I was able to achieve working results at a recording rate of 20 pages per minute. It is possible to do 1 page per second.
+The way it starts is simple - you need to use an online reader (this code is designed for Google Books) on full screen mode, recommended one-page layout and Fit-to-Screen Zoom. I was able to achieve working results at a recording rate of 20 pages per minute. It is possible to do 1 page per second because the code slows down your input.
 
 Instructions for how to record your Macro with Screen Recording:
 
   Turn through the pages that you want in the PDF. Use Record Selection to record the pages as you want them to     
-  appear on PDF. I recommend using a Macro tool like Apple Shortcuts. It can be powerful to program efficiency. This 
-  code slows down your screen recording for transcription, so you can easily record at 1 page per second. Don't ever 
+  appear on PDF. I recommend using a Macro tool like Apple Shortcuts. It can be powerful to program efficiency. Don't ever 
   go backwards, because this code only checks the previous page for duplicates.
 
 
