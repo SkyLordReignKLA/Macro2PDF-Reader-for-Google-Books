@@ -19,15 +19,14 @@ Enter your .mov filename and path into video_file, and choose a selected path fo
 
 =================
 
-This code uniquely leverages OpenCV, NumPy, PyMuPDF (fitz), OCR (Native 2 Mac), and img2pdf to transform your screen recording into PDF. The while loop reads video frames using cv2, tracking stability and filtering out loading spinners using numpy color arrays. Static frames are written and bound into raw PDF with img2pdf. A for loop using fitz renders high-res pixmaps, extracting semantic content with ocrmac. We evaluate semantic similarity with difflib.
+This code uniquely leverages OpenCV, NumPy, PyMuPDF (fitz), OCR (Native 2 Mac), and img2pdf to transform your screen recording into PDF. The while loop reads video frames using cv2, tracking stability and filtering out loading spinners using numpy color arrays. Static frames are written and bound into raw PDF with img2pdf. A for loop using fitz renders high-res pixmaps, extracting content with ocrmac. We evaluate similarity with difflib.
 
-A collection of if-statements checks two pages exceeding semantic similarity 80% (a ratio which can be changed) based on the OCR assessment. A tiebreaker automatically discards the page with higher blue-pixel count. We expect duplicate pages to have high semantic similarity, while unique pages have much lower high-n phrase-based similarity. This logic specifically benefits from the blue loading wheel to identify duplicates. I found that was often the cause of duplication.
+A collection of if-statements checks two pages exceeding similarity 80% (a ratio which can be changed) based on the OCR assessment. A tiebreaker automatically discards the page with higher blue-pixel count. We expect duplicate pages to have high similarity, while unique pages have much lower similarity. We calculate similarity using the Ratcliff-Obershelp algorithm. This logic specifically benefits from the blue loading wheel to identify duplicates. I found that was often the cause of duplication.
 
 =================
 
 I tested this code on B&W books; however, I believe it will still work on color based on if blue is not the dominant color. This script provides document metrics including the highest similarity score kept in the final PDF. The code produces logs that can be helpful for troubleshooting.
 
-If you encounter a duplicate page, I recommend changing the ratio to a percentage below the highest similarity score. Some books with low word counts have artificially high similarity rates on non-duplicates. If you encounter this, just do the opposite - turn up the rate. If you are really struggling, contact me.
-
+If you encounter a duplicate page, change the ratio below the highest output similarity. Books with low word counts have artificially high similarity rates. If you encounter this, do the opposite - turn up the rate. If you are really struggling, contact me.
 
 Please let me know how it goes, especially with blue picture books. I would really like to hear your feedback on that one! Thank you!!
