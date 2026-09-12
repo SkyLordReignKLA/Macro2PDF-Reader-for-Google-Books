@@ -13,15 +13,17 @@ Instructions for how to record your Macro with Screen Recording:
 
 =================
 
-Now that you have screen-recorded your entire book, you are entirely ready to create a PDF. Before running the script, you need to install a few Python imports: "pip install opencv-python numpy PyMuPDF img2pdf ocrmac"
+Now that you have screen-recorded your entire book, you are entirely ready to create your PDF. Before running the script, you need to install a few Python imports: "pip install opencv-python numpy PyMuPDF img2pdf ocrmac"
 
-Enter your .mov filename and path into video_file, and choose a selected path for raw_pdf_path and final_pdf_path raw and final outputs. I recommend check for inconsistencies using these documents.
+Enter your .mov filename and path into video_file, and choose a selected path for raw_pdf_path and final_pdf_path. I recommend using the raw document to check for inconsistencies.
 
+=================
 
-This code uniquely leverages OpenCV, NumPy, PyMuPDF (fitz), OCR (Native 2 Mac), and img2pdf to transform the screen recording into a PDF. The while loop reads video frames using cv2, tracking stability and filtering out loading spinners using numpy color arrays. Static frames are written and bound into raw PDF with img2pdf. A for loop using fitz renders high-res pixmaps, extracting semantic content with ocrmac. We use it to evaluate similarity with difflib.
+This code uniquely leverages OpenCV, NumPy, PyMuPDF (fitz), OCR (Native 2 Mac), and img2pdf to transform your screen recording into PDF. The while loop reads video frames using cv2, tracking stability and filtering out loading spinners using numpy color arrays. Static frames are written and bound into raw PDF with img2pdf. A for loop using fitz renders high-res pixmaps, extracting semantic content with ocrmac. We evaluate semantic similarity with difflib.
 
-A collection of if-statements checks two pages exceeding semantic similarity 80% (a ratio which can be changed) based on the OCR assessment. A tiebreaker automatically discards the page with higher blue-pixel count. This logic specifically benefits from the blue loading wheel to identify duplicates. I found that was often the cause of duplication.
+A collection of if-statements checks two pages exceeding semantic similarity 80% (a ratio which can be changed) based on the OCR assessment. A tiebreaker automatically discards the page with higher blue-pixel count. We expect duplicate pages to have high semantic similarity, while unique pages have much lower high-n phrase-based similarity. This logic specifically benefits from the blue loading wheel to identify duplicates. I found that was often the cause of duplication.
 
+=================
 
 I tested this code on B&W books; however, I believe it will still work on color based on if blue is not the dominant color. This script provides document metrics including the highest similarity score kept in the final PDF. The code produces logs that can be helpful for troubleshooting.
 
